@@ -27,23 +27,39 @@ class Player:
         keys = pygame.key.get_pressed()
         if keys[pygame.K_w]:
             self.rect.y -= speed
+            if self.rect.y < 0:
+                self.rect.y += speed
         if keys[pygame.K_s]:
             self.rect.y += speed
+            if self.rect.y > 400:
+                self.rect.y -= speed
         if keys[pygame.K_a]:
             self.rect.x -= speed
+            if self.rect.x < 0:
+                self.rect.x += speed
         if keys[pygame.K_d]:
             self.rect.x += speed
+            if self.rect.x > 600:
+                self.rect.x -= speed
         
     def move_on_arrows(self , speed):
         keys = pygame.key.get_pressed()
         if keys[pygame.K_UP]:
             self.rect.y -= speed
+            if self.rect.y < 0:
+                self.rect.y += speed
         if keys[pygame.K_DOWN]:
             self.rect.y += speed
+            if self.rect.y > 400:
+                self.rect.y -= speed
         if keys[pygame.K_LEFT]:
             self.rect.x -= speed
+            if self.rect.x < 0:
+                self.rect.x += speed
         if keys[pygame.K_RIGHT]:
             self.rect.x += speed
+            if self.rect.x > 600:
+                self.rect.x -= speed
 
 player1_img = pygame.image.load("images/steve.png")
 player1 = Player(20 , 250 , player1_img , 90 , 100)
